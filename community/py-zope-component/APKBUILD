@@ -3,7 +3,7 @@
 pkgname=py-zope-component
 _pkgname=zope.component
 pkgver=4.5
-pkgrel=1
+pkgrel=2
 pkgdesc="Zope Component Architecture"
 url="https://pypi.python.org/pypi/zope.component"
 arch="noarch"
@@ -16,7 +16,7 @@ depends="
 	py-zope-hookable
 	py-zope-interface
 	"
-makedepends="python2-dev python3-dev py-setuptools"
+makedepends="python2-dev python3-dev py-setuptools libffi-dev"
 subpackages="py2-${pkgname#py-}:_py2 py3-${pkgname#py-}:_py3"
 source="$_pkgname-$pkgver.tar.gz::https://github.com/zopefoundation/zope.component/archive/$pkgver.tar.gz"
 builddir="$srcdir"/$_pkgname-$pkgver
