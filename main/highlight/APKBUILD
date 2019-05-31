@@ -2,7 +2,7 @@
 # Maintainer: Natanael Copa <ncopa@alpinelinux.org>
 _luaver=5.3
 pkgname=highlight
-pkgver=3.50
+pkgver=3.52
 pkgrel=0
 pkgdesc="Fast and flexible source code highlighter"
 url="http://www.andre-simon.de/doku/highlight/highlight.html"
@@ -23,4 +23,4 @@ package() {
 	make DESTDIR="$pkgdir" install
 }
 
-sha512sums="1911a29fea6a157ff237276673acf0ae2b5a931ad7beeacf26a67970fc5ec66abf6dc64ff1694bf0cf68414c29f597625700943da772823a025f7a139d606c3d  highlight-3.50.tar.bz2"
+sha512sums="4a44f6c4d29836c6f1af9db02c4e989c7ce155bcb387ca294170c361ae6c41b7441b03810ee27e7b7cdbd3ec73907fb5746ab545b7a44dfc482cc242a86681fe  highlight-3.52.tar.bz2"
