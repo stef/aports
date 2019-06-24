@@ -1,20 +1,20 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kconfig
-pkgver=5.58.0
+pkgver=5.59.0
 pkgrel=0
 pkgdesc="Configuration system"
 arch="all"
 url="https://community.kde.org/Frameworks"
 license="LGPL-2.0-or-later AND LGPL-2.0-only AND LGPL-2.1-or-later"
 makedepends="extra-cmake-modules qt5-qttools-dev doxygen"
+checkdepends="xvfb-run"
 source="https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz"
 subpackages="$pkgname-dev $pkgname-doc $pkgname-lang"
-options="!check" # Fails due to requiring running X11
 
 build() {
 	cmake \
-		-DCMAKE_BUILD_TYPE=RelWithDebugInfo \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DBUILD_QCH=ON
@@ -22,11 +22,11 @@ build() {
 }
 
 check() {
-	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+	CTEST_OUTPUT_ON_FAILURE=TRUE xvfb-run ctest -E '(kconfigcore-kconfigtest|kconfigcore-kdesktopfiletest|kconfigcore-test_kconf_update)'
 }
 
 package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="bdcd7b28734406ea5bc8e323659cae99754ca0da799a97d20a0e56ae74386cbec9bdaa447ab1b445bf137dfe928bece0c28a7630a1856eee9d822e6b01783c19  kconfig-5.58.0.tar.xz"
+sha512sums="c8f21979e3508b9bf1b695a22e4843ff0d311db957817fcc3bbc5c65e397c7e2a0ed8fb2f1194fea79e90a5369f52d758bb684354b9d9e1856dd9552e5f837e7  kconfig-5.59.0.tar.xz"

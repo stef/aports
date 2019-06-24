@@ -2,14 +2,13 @@
 # Maintainer: Francesco Colista <fcolista@alpinelinux.org>
 pkgname=py-pbr
 _pkgname=pbr
-pkgver=5.2.1
+pkgver=5.3.1
 pkgrel=0
 pkgdesc="Python Build Reasonableness"
 url="https://pypi.python.org/pypi/pbr"
 arch="noarch"
 license="Apache-2.0"
-depends=""
-makedepends="python2-dev python3-dev py-setuptools"
+makedepends="py-setuptools py3-setuptools"
 subpackages="py2-${pkgname#py-}:_py2 py3-${pkgname#py-}:_py3"
 source="https://files.pythonhosted.org/packages/source/${_pkgname:0:1}/$_pkgname/$_pkgname-$pkgver.tar.gz"
 builddir="$srcdir/$_pkgname-$pkgver"
@@ -49,4 +48,4 @@ _py() {
 	$python setup.py install --prefix=/usr --root="$subpkgdir"
 }
 
-sha512sums="6f7ceb181d972a432b19c38e88a843ff6d85fc359fa6aa3fa425a1cf2d15081d29b187489f526c634998d0445c1650c75631575c7038072f2bc1b37b8dd47716  pbr-5.2.1.tar.gz"
+sha512sums="61af01b72a5d049239d9e9e844bd244595d15ad86944720ec354d4bf03e1abbe07f9529e73cc3dcaa34505e57abe443cba63f1bd8cf03dd5822e9b2a6f839981  pbr-5.3.1.tar.gz"

@@ -1,0 +1,31 @@
+# Contributor: Fabian Affolter <fabian@affolter-engineering.ch>
+# Maintainer: Fabian Affolter <fabian@affolter-engineering.ch>
+pkgname=py3-yapsy
+_pkgname=Yapsy
+pkgver=1.12.0
+pkgrel=0
+pkgdesc="DIY Python plugin management toolkit"
+url="https://yapsy.sourceforge.net"
+arch="noarch"
+license="BSD-2-Clause"
+depends="python3"
+makedepends="py3-setuptools"
+source="https://files.pythonhosted.org/packages/source/${_pkgname:0:1}/$_pkgname/$_pkgname-$pkgver.tar.gz"
+builddir="$srcdir"/$_pkgname-$pkgver
+
+replaces="py-yapsy" # Backwards compatibility
+provides="py-yapsy=$pkgver-r$pkgrel" # Backwards compatibility
+
+build() {
+	python3 setup.py build
+}
+
+check() {
+	python3 setup.py test
+}
+
+package() {
+	python3 setup.py install --prefix=/usr --root="$pkgdir"
+}
+
+sha512sums="115b5d1a99aeef01b2f0826554d4aebab33144560ec5dbde24c5ae8ab5082f859bab2d23e3a65bce2d1f81035ccba576a2775149e23ecb0fdbc59c5b9861ce03  Yapsy-1.12.0.tar.gz"

@@ -1,0 +1,34 @@
+# Contributor: Leo <thinkabit.ukim@gmail.com>
+# Contributor: Stefan Wagner <stw@bit-strickerei.de>
+# Maintainer: Stefan Wagner <stw@bit-strickerei.de>
+pkgname=py3-cairocffi
+_pkgname=cairocffi
+pkgver=0.9.0
+pkgrel=2
+pkgdesc="Python CFFI-based binding to Cairo and GDK-PixBuf"
+url="https://pythonhosted.org/cairocffi/"
+arch="noarch"
+license="BSD-3-Clause"
+depends="python3 py3-cffi cairo gdk-pixbuf"
+checkdepends="py3-pytest py3-pytest-cov ttf-dejavu"
+makedepends="py3-setuptools"
+source="https://files.pythonhosted.org/packages/source/${_pkgname:0:1}/$_pkgname/$_pkgname-$pkgver.tar.gz"
+builddir="$srcdir"/$_pkgname-$pkgver
+
+replaces="py-cairocffi" # For backwards compatibiltiy
+provides="py-cairocffi=$pkgver-r$pkgrel" # For backwards compatibility
+
+build() {
+	python3 setup.py build
+}
+
+check() {
+	python3 setup.py test
+}
+
+package() {
+	python3 setup.py install --prefix=/usr --root="$pkgdir"
+}
+
+
+sha512sums="0d3d54e0d54b3696c8336d8b3a6d745628da51d9d9f8c50f36006c007e1432a95dd9bafd8d865923059d040cc4e9f7989b3670a5318383b357ffc979eeb920d5  cairocffi-0.9.0.tar.gz"

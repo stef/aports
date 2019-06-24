@@ -1,0 +1,32 @@
+# Maintainer: Mike Crute <mike@crute.us>
+pkgname=newsboat
+pkgver=2.15
+pkgrel=0
+pkgdesc="RSS/Atom feed reader for text terminals"
+url="https://newsboat.org"
+arch="x86_64" # limited by cargo
+license="MIT"
+replaces="newsbeuter"
+provides="newsbeuter=$pkgver-r$pkgrel"
+makedepends="asciidoc cargo curl-dev gettext-dev json-c-dev libxml2-dev
+	ncurses-dev sqlite-dev stfl-dev"
+subpackages="$pkgname-doc $pkgname-lang"
+source="https://github.com/newsboat/newsboat/archive/r$pkgver.tar.gz"
+
+builddir="$srcdir/$pkgname-r$pkgver"
+
+build() {
+	./config.sh
+	echo "LDFLAGS+= -lintl" >> config.mk
+	make prefix=/usr
+}
+
+check() {
+	make prefix=/usr test
+}
+
+package() {
+	make DESTDIR="$pkgdir" prefix=/usr install
+}
+
+sha512sums="458fef9c3cf3c10139e949957e93c3d4346f9caeef35c7912f677d91bb18b864c9986ca006727ab207ac39112f23a7bee41b86b45f54a8d4ef42f50d1ad5656a  r2.15.tar.gz"

@@ -1,5 +1,7 @@
 #!/sbin/openrc-run
 supervisor=supervise-daemon
+respawn_delay=5
+respawn_max=0
 healthcheck_timer=30
 
 name='Minio Block Storage Server'
@@ -19,5 +21,5 @@ start_pre() {
 
 healthcheck() {
     [ -x /usr/bin/curl ] || return 0
-    /usr/bin/curl -q "$address"/minio/health/ready
+    /usr/bin/curl -q "${address:-localhost:9000}"/minio/health/ready
 }

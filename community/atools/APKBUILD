@@ -1,7 +1,7 @@
 # Contributor: Kevin Daudt <kdaudt@alpinelinux.org>
 # Maintainer: Kevin Daudt <kdaudt@alpinelinux.org>
 pkgname=atools
-pkgver=15.1
+pkgver=17.1
 pkgrel=0
 pkgdesc="Auxilary scripts for abuild"
 url="https://github.com/maxice8/atools"
@@ -11,8 +11,7 @@ depends="grep"
 makedepends="scdoc redo"
 checkdepends="bats"
 subpackages="$pkgname-doc"
-source="$pkgname-$pkgver.tar.gz::https://github.com/maxice8/atools/archive/$pkgver.tar.gz
-	escape-bare-underscore.patch"
+source="$pkgname-$pkgver.tar.gz::https://github.com/maxice8/atools/archive/$pkgver.tar.gz"
 
 build() {
 	redo build
@@ -26,5 +25,4 @@ package() {
 	DESTDIR="$pkgdir" redo install
 }
 
-sha512sums="c56f3370d0fedc1df3d6e20bdf05f58046935d1b9238d963fa65edfc2acc6579b4122a1453428de2689c99f623d450ba0382318ae2f01e0956240bfbffa3f0de  atools-15.1.tar.gz
-5c85b9fe41210538647b277081cade8cc265f5e2a9f2d7e1707194d7afd2be5c3c56ab29e364a6af3ca6f2c4ccdbffe632e572303f52518a621af3bf990fd2d8  escape-bare-underscore.patch"
+sha512sums="90e2e2f0f491220abd5fb6849b23aac9a6995f3e9e4937b3db28c49242debb79452425433d7ff56dd53f430c25d981062c73c28ccd94cbec4039d193bde88eaa  atools-17.1.tar.gz"

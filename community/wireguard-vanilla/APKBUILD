@@ -2,11 +2,11 @@
 # Maintainer: Stuart Cardall <developer@it-offshore.co.uk>
 
 # wireguard version
-_ver=0.0.20190406
+_ver=0.0.20190601
 _rel=0
 
 # kernel version
-_kver=4.19.45
+_kver=4.19.53
 _krel=0
 
 _kpkgver="$_kver-r$_krel"
@@ -25,8 +25,7 @@ _kpkg=linux-$_flavor
 
 pkgname=wireguard-$_flavor
 pkgver=$_kver
-pkgrel=2
-pkgrel=$(($pkgrel + $_krel))
+pkgrel=$(( $_rel + $_krel))
 
 pkgdesc="Next generation secure network tunnel: kernel modules for $_flavor"
 arch="all"
@@ -54,13 +53,6 @@ prepare() {
 		(	. "$startdir"/../../main/linux-$_flavor/APKBUILD
 			[ "$_kver" != "$pkgver" ] && die "please update _kver to $pkgver"
 			[ "$_krel" != "$pkgrel" ] && die "please update _krel to $pkgrel"
-			return 0
-		)
-	fi
-	if [ -z "$FLAVOR" ]; then
-		(	. "$startdir"/../../community/wireguard-tools/APKBUILD
-			[ "$_ver" != "$pkgver" ] && die "please update _ver to $pkgver"
-			[ "$_rel" != "$pkgrel" ] && die "please update _rel to $pkgrel"
 			return 0
 		)
 	fi
@@ -96,4 +88,4 @@ _extra() {
 		"$subpkgdir/lib/modules/$kabi/extra/wireguard.ko"
 }
 
-sha512sums="e3035030299f5a6ae3ac0c2e35dc2d54745cda8f31185b21c6590f1ddcc9c7a83bf7b71cc71f6d48ed6dc8f2b31f3c704f8fa85685d4113f4c560f7eba7b7d5e  WireGuard-0.0.20190406.tar.xz"
+sha512sums="d667e42b90fbda85b005ae2966689dadc9975c1a53ca5ddfff44214ed55ad7d55d451008c225a4619c834bd7af598af1f127d76a8a3a86cf2e6d886ea0638cf3  WireGuard-0.0.20190601.tar.xz"

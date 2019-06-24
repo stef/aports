@@ -2,7 +2,7 @@
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=qt5-qtvirtualkeyboard
 _pkgname="${pkgname/qt5-/}-everywhere-src"
-pkgver=5.12.3
+pkgver=5.12.4
 pkgrel=0
 arch="all"
 url="http://qt-project.org/"
@@ -26,12 +26,10 @@ build() {
 }
 
 check() {
-	cd "$builddir"
 	make check
 }
 
 package() {
-	cd "$builddir"
 	make INSTALL_ROOT="$pkgdir" install
 
 	# Drop QMAKE_PRL_BUILD_DIR because reference the build dir
@@ -41,4 +39,4 @@ package() {
 	install -d "$pkgdir"/usr/share/licenses
 	ln -s /usr/share/licenses/qt5-base "$pkgdir"/usr/share/licenses/$pkgname
 }
-sha512sums="1aa00fec7e333e4fd52891b82c239b532cf41657d9c3f44c6cc1c211a1412dbf5584823511e54f3feb33b3fed9c6e0171b55afde2df9f0a358e2e4885e1b2686  qtvirtualkeyboard-everywhere-src-5.12.3.tar.xz"
+sha512sums="04960c475a01f65901279fdab352742e4dc77753a306c7bd9996cf32be4a63524e7be034d60b398c6862c0099b02eedcef89f28fd09b1c7fa3075f89adba5a7a  qtvirtualkeyboard-everywhere-src-5.12.4.tar.xz"

@@ -1,7 +1,7 @@
 # Contributor: Carlo Landmeter <clandmeter@gmail.com>
 # Maintainer: Francesco Colista <fcolista@alpinelinux.org>
 pkgname=certbot
-pkgver=0.34.2
+pkgver=0.35.1
 pkgrel=0
 pkgdesc="An ACME client that can update Apache/Nginx configurations"
 url="https://github.com/certbot/certbot"
@@ -27,10 +27,8 @@ makedepends="python3-dev"
 replaces="letsencrypt"
 subpackages="py3-acme:acme $pkgname-nginx $pkgname-apache $pkgname-postfix"
 source="certbot-$pkgver.tar.gz::https://github.com/certbot/certbot/archive/v$pkgver.tar.gz"
-builddir="$srcdir"/$pkgname-$pkgver
 
 build() {
-	cd "$builddir"
 	local i
 	for i in . $subpackages; do
 		cd "$builddir"/${i##*:}
@@ -39,7 +37,6 @@ build() {
 }
 
 check() {
-	cd "$builddir"
 	local i
 	for i in . $subpackages; do
 		cd "$builddir"/${i##*:}
@@ -48,7 +45,6 @@ check() {
 }
 
 package() {
-	cd "$builddir"
 	python3 setup.py install --prefix=/usr --root="$pkgdir"
 }
 
@@ -114,4 +110,4 @@ postfix() {
 	python3 setup.py install --prefix=/usr --root="$subpkgdir"
 }
 
-sha512sums="63923b1d433f4c714318e848335e696e2412c574cc16f4fb1631caeebdce5a7f599985cf450e96dceb87a958c8f09a003e1d2f24eac1bdc183c7a5c43bb362de  certbot-0.34.2.tar.gz"
+sha512sums="a4dc2ac2e451f2aaf99c545f8dc8e960783465519be6e29f52e5ee53dd49175f86df5613829fa801d8aa56ddfc9b79e27dba33eda89f3d0a0fae52ef881b0afa  certbot-0.35.1.tar.gz"

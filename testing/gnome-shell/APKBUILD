@@ -1,10 +1,10 @@
 # Maintainer: Rasmus Thomsen <oss@cogitri.dev>
 pkgname=gnome-shell
 pkgver=3.32.2
-pkgrel=1
+pkgrel=2
 pkgdesc="GNOME shell"
 url="https://wiki.gnome.org/Projects/GnomeShell"
-arch="all !aarch64 !armhf !armv7 !s390x !ppc64le" # ppc64le limited by mutter
+arch="all !aarch64 !armhf !armv7 !s390x"
 license="GPL-2.0-or-later"
 depends="accountsservice
 	caribou
@@ -45,9 +45,14 @@ makedepends="gnome-desktop-dev
 	py3-setuptools
 	gnome-bluetooth-dev
 	gstreamer-dev"
+checkdepends="
+	xvfb-run
+	mesa-dri-swrast
+	gdm
+	"
 subpackages="$pkgname-lang $pkgname-doc"
 source="https://download.gnome.org/sources/gnome-shell/${pkgver%.*}/gnome-shell-$pkgver.tar.xz"
-options="!check" # Requires running X11 server
+options="!check" # Tests have circular dependency 'gnome-shell <-> gdm'
 
 build() {
 	meson \
@@ -62,7 +67,7 @@ build() {
 }
 
 check() {
-	ninja -C output test
+	xvfb-run ninja -C output test
 }
 
 package() {

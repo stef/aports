@@ -27,6 +27,7 @@ find_package(OpenSSL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(X11 REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(RapidJSON REQUIRED)
 
 find_package(Qt5 REQUIRED COMPONENTS Core DBus Gui Widgets Network)
 get_target_property(QTCORE_INCLUDE_DIRS Qt5::Core INTERFACE_INCLUDE_DIRECTORIES)
@@ -57,6 +58,7 @@ list(APPEND THIRD_PARTY_INCLUDE_DIRS
 
 add_subdirectory(${THIRD_PARTY_DIR}/crl)
 add_subdirectory(${THIRD_PARTY_DIR}/libtgvoip)
+add_subdirectory(${THIRD_PARTY_DIR}/qtlottie)
 
 set(TELEGRAM_SOURCES_DIR ${CMAKE_SOURCE_DIR}/SourceFiles)
 set(TELEGRAM_RESOURCES_DIR ${CMAKE_SOURCE_DIR}/Resources)
@@ -90,10 +92,10 @@ file(GLOB FLAT_SOURCE_FILES
 	SourceFiles/core/*.cpp
 	SourceFiles/data/*.cpp
 	SourceFiles/dialogs/*.cpp
-	SourceFiles/history/*.cpp
 	SourceFiles/inline_bots/*.cpp
 	SourceFiles/intro/*.cpp
 	SourceFiles/lang/*.cpp
+	SourceFiles/main/*.cpp
 	SourceFiles/mtproto/*.cpp
 	SourceFiles/overview/*.cpp
 	SourceFiles/passport/*.cpp
@@ -113,7 +115,9 @@ file(GLOB FLAT_EXTRA_FILES
 	SourceFiles/passport/passport_form_row.cpp
 	SourceFiles/storage/*_tests.cpp
 	SourceFiles/storage/*_win.cpp
+	SourceFiles/storage/storage_feed_messages.cpp
 	SourceFiles/storage/cache/*_tests.cpp
+	SourceFiles/data/data_feed_messages.cpp
 )
 list(REMOVE_ITEM FLAT_SOURCE_FILES ${FLAT_EXTRA_FILES})
 
@@ -126,6 +130,13 @@ file(GLOB_RECURSE SUBDIRS_SOURCE_FILES
 	SourceFiles/ui/*.cpp
 	SourceFiles/window/*.cpp
 )
+
+file(GLOB SUBDIRS_EXTRA_FILES
+	SourceFiles/info/feed/*.cpp
+	SourceFiles/info/channels/*.cpp
+	SourceFiles/history/feed/*.cpp
+)
+list(REMOVE_ITEM SUBDIRS_SOURCE_FILES ${SUBDIRS_EXTRA_FILES})
 
 add_executable(Telegram WIN32 ${QRC_FILES} ${FLAT_SOURCE_FILES} ${SUBDIRS_SOURCE_FILES})
 
@@ -145,6 +156,7 @@ set(TELEGRAM_INCLUDE_DIRS
 	${MINIZIP_INCLUDE_DIRS}
 	${OPENAL_INCLUDE_DIR}
 	${QT_PRIVATE_INCLUDE_DIRS}
+	${RAPIDJSON_INCLUDE_DIRS}
 	${THIRD_PARTY_INCLUDE_DIRS}
 	${ZLIB_INCLUDE_DIR}
 )
@@ -152,6 +164,7 @@ set(TELEGRAM_INCLUDE_DIRS
 set(TELEGRAM_LINK_LIBRARIES
 	xxhash
 	crl
+	qtlottie
 	tgvoip
 	OpenSSL::Crypto
 	OpenSSL::SSL
@@ -239,3 +252,4 @@ endif()
 
 install(TARGETS Telegram RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${CMAKE_SOURCE_DIR}/../lib/xdg/telegramdesktop.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+

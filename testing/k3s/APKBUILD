@@ -1,8 +1,8 @@
 # Contributor: Oleg Titov <oleg.titov@gmail.com>
 # Maintainer: Oleg Titov <oleg.titov@gmail.com>
 pkgname=k3s
-pkgver=0.5.0
-pkgrel=1
+pkgver=0.6.1
+pkgrel=0
 pkgdesc="Lightweigt Kubernetes. 5 less than k8s."
 url="https://k3s.io"
 arch="all"
@@ -10,7 +10,6 @@ license="Apache-2.0"
 options="!check" # No test suite from upstream
 depends="containerd"
 makedepends="go linux-headers"
-install=""
 subpackages="$pkgname-doc $pkgname-openrc"
 source="$pkgname-$pkgver.tar.gz::https://github.com/rancher/k3s/archive/v$pkgver.tar.gz
 	k3s.initd
@@ -43,8 +42,6 @@ build() {
 }
 
 package() {
-	cd "$builddir"
-
 	install -m755 -D k3s \
 		"$pkgdir"/usr/bin/k3s
 	install -m755 -D kubectl \
@@ -52,13 +49,12 @@ package() {
 	install -m755 -D hyperkube \
 		"$pkgdir"/usr/bin/hypercube
 
-	install -m644 -D -t "$pkgdir"/usr/share/licenses/$pkgname LICENSE
 	install -m644 -D -t "$pkgdir"/usr/share/doc/$pkgname README.md
 
 	install -m755 -D "$srcdir"/k3s.initd "$pkgdir"/etc/init.d/k3s
 	install -m644 -D "$srcdir"/k3s.confd "$pkgdir"/etc/conf.d/k3s
 }
 
-sha512sums="10fa2eba818105024ee130d75b01cbb0aec0ed2472118510399ae05e78f171b47d85587ba3dbd8a1f2fcd6cc5f971cfb38eff0efa2b00404f98d87cb1f2e8521  k3s-0.5.0.tar.gz
+sha512sums="41cae0809f3bb82906c98c31c8069b012ae965e21a2bf8bb9bc544bccc1793fa9aa14161ebea73e26f4b67f16ec703031921037c6c65a7f46d34328f41c1a80e  k3s-0.6.1.tar.gz
 9501422f1bf5375555116cbeedb32de32109153396699bde1300ce01156c3e57fe3fb14a57f7de1dce47c955e5e6d61de7fea181a07b407f5b452006bc58991c  k3s.initd
 dda2fc70e884ef439fece8f850d798f98d07cd431f0b8b79183f192b35f68fc7c633d3c790aae7b86ca57331212a7bb2f783131b752a4e1e71ef918469e6b944  k3s.confd"

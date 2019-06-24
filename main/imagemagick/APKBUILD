@@ -2,8 +2,8 @@
 # Contributor: Carlo Landmeter <clandmeter@gmail.com>
 # Maintainer: Natanael Copa <ncopa@alpinelinux.org>
 pkgname=imagemagick
-pkgver=7.0.8.44
-pkgrel=0
+pkgver=7.0.8.49
+pkgrel=1
 _pkgver=${pkgver%.*}-${pkgver##*.}
 _abiver=7
 pkgdesc="Collection of tools and libraries for many image formats"
@@ -13,10 +13,12 @@ license="ImageMagick"
 options="libtool !checkroot"
 makedepends="zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev fontconfig-dev
 	perl-dev ghostscript-dev libwebp-dev libtool tiff-dev lcms2-dev
-	libwebp-dev libxml2-dev librsvg-dev libx11-dev libxext-dev"
+	libwebp-dev libxml2-dev librsvg-dev libx11-dev libxext-dev chrpath
+	libheif-dev"
 checkdepends="freetype fontconfig ghostscript ghostscript-fonts lcms2 graphviz"
-subpackages="$pkgname-doc $pkgname-dev $pkgname-c++:_cxx $pkgname-libs"
-source="https://www.imagemagick.org/download/releases/ImageMagick-$_pkgver.tar.xz"
+subpackages="$pkgname-doc $pkgname-dev $pkgname-c++:_cxx $pkgname-libs $pkgname-perlmagick:_perlmagick $pkgname-perlmagick-doc:_perlmagick_doc"
+source="https://www.imagemagick.org/download/releases/ImageMagick-$_pkgver.tar.xz
+	disable-avaraging-tests.patch"
 builddir="$srcdir/ImageMagick-${_pkgver}"
 
 # secfixes:
@@ -52,8 +54,11 @@ build() {
 		--with-rsvg \
 		--with-gslib \
 		--with-gs-font-dir=/usr/share/fonts/Type1 \
+		--with-heic \
 		--with-modules \
 		--with-xml \
+		--with-perl \
+		--with-perl-options=PREFIX=/usr \
 		$_pic
 	make
 }
@@ -85,4 +90,19 @@ _cxx() {
 	mv "$pkgdir"/usr/lib/libMagick++*.so.* "$subpkgdir"/usr/lib/
 }
 
-sha512sums="a18b9e78375ed1a8ab3526ead089dc39c4eed189d4aca0df87787c7ef6e4ee46cdc9a93a1fe1c2a65f0ac2f86c3651696ccd23eb82b6a96cad4c78cf8314bb96  ImageMagick-7.0.8-44.tar.xz"
+_perlmagick() {
+	pkgdesc="PerlMagick Perl Modules for ImageMagick"
+	mkdir -p "$subpkgdir"/usr/lib
+	mv "$pkgdir"/usr/lib/perl5 "$subpkgdir"/usr/lib/
+	chrpath -d "$subpkgdir"/usr/lib/perl5/site_perl/auto/Image/Magick/Q16HDRI/Q16HDRI.so
+}
+
+_perlmagick_doc() {
+	pkgdesc="PerlMagick Perl Module Documentation for ImageMagick"
+	mkdir -p "$subpkgdir"
+	cd "$builddir"/PerlMagick
+	make -j1 DESTDIR="$subpkgdir" doc_vendor_install
+}
+
+sha512sums="8dd4a45f4d95d949bcd797f44d1602a3767386ee7d73888fb8a1ee6d4d8be7c4881a88262e7261a253da6f4b3c8ac9442d5eacb44e267e2d25e11bda10b12526  ImageMagick-7.0.8-49.tar.xz
+58afb2da075a6208b6a990ff297b3a827d260687c3355198a8b4d987e1596c0b0cd78aff6f0be0e1896e537fbe44a3d467473183f5f149664ea6e6fb3d3291a9  disable-avaraging-tests.patch"
