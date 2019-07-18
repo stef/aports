@@ -1,12 +1,11 @@
 # Contributor: Natanael Copa <ncopa@alpinelinux.org>
 # Maintainer: Rasmus Thomsen <oss@cogitri.dev>
 pkgname=evolution
-pkgver=3.32.2
-pkgrel=1
+pkgver=3.32.4
+pkgrel=0
 pkgdesc="evolution mail client"
 url="https://projects.gnome.org/evolution"
-# limited by webkit2gtk
-arch="all !s390x"
+arch="all"
 license="GPL-2.0-or-later"
 depends="highlight gsettings-desktop-schemas"
 depends_dev="itstool libxml2-dev gcr-dev enchant-dev libcanberra-dev
@@ -22,14 +21,12 @@ build() {
 	cd "$builddir"/build
 	cmake \
 		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_INSTALL_LIBDIR=/usr/lib \
+		-DSYSCONF_INSTALL_DIR=/etc \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DENABLE_GNOME_DESKTOP=OFF \
 		-DENABLE_AUTOAR=OFF \
-		-DENABLE_LIBCRYPTUI=OFF \
 		-DENABLE_YTNEF=OFF \
 		-DENABLE_PST_IMPORT=OFF \
-		-DENABLE_NSS=ON \
 		-DENABLE_SMIME=ON \
 		..
 	make
@@ -45,4 +42,4 @@ package() {
 	make DESTDIR="$pkgdir" install
 }
 
-sha512sums="15bba6f032dc11ec7bb69c8e04319277e94212b54826b45d7ff1d83e316097a3ffb9f4f25c21f8c3e03b0c66dc5555b519f7f305e25e8b3bed926f8fac585dea  evolution-3.32.2.tar.xz"
+sha512sums="a09ef7e39a73449a8a897c430fb97aadac01790d350b21e456d86cc785b67bdc2b542771ef9c6daa160fc0c1946b4a4e3eb9429a8ad1d69284698cbdb0ac4931  evolution-3.32.4.tar.xz"

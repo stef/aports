@@ -1,0 +1,30 @@
+# Contributor: Bart Ribbers <bribbers@disroot.org>
+# Maintainer: Bart Ribbers <bribbers@disroot.org>
+pkgname=kolourpaint
+pkgver=19.04.3
+pkgrel=0
+arch="all"
+url="http://www.kolourpaint.org/"
+pkgdesc="An easy-to-use paint program"
+license="BSD-2-Clauase AND LGPL-2.0-or-later AND GFDL-1.2"
+makedepends="extra-cmake-modules qt5-qtbase-dev kdoctools-dev ki18n-dev kguiaddons-dev kwidgetsaddons-dev kio-dev kxmlgui-dev kiconthemes-dev ktextwidgets-dev kitemmodels-dev kdelibs4support-dev libksane-dev"
+source="https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"
+subpackages="$pkgname-doc $pkgname-lang"
+
+build() {
+	cmake \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib
+	make
+}
+
+check() {
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" make install
+}
+
+sha512sums="bc9a5f081cd50b32b651dac12a6d2146f63788dda6cb7c8fe1c8f6ada99d422e13e0f9b512f8fb6e620ce70a63baca0a44bb5a1d94f0f90d3c0c4aed3705332b  kolourpaint-19.04.3.tar.xz"

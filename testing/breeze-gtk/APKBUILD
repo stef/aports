@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=breeze-gtk
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="A GTK Theme Built to Match KDE's Breeze"
 arch="all"
@@ -26,4 +26,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="9000d26d4ba31b38c7bad3d61de6e5df9fe49ebd027b0b6617fda81fa6a16787ba2aded862590cff78a34e583eacd245f96100d9832e4effa9cf547d9180ffe8  breeze-gtk-5.16.1.tar.xz"
+sha512sums="9818ac9e92c420b2629679f2953ae0bb65ee7e5641e9bb3017b23d249b889596209688298623a349d55221584088db32df58a0ff6f5e2fa1fce1dbcba3bf7cc4  breeze-gtk-5.16.3.tar.xz"

@@ -2,7 +2,7 @@
 # Maintainer: Gavin D. Howard <yzena.tech@gmail.com>
 pkgname=howard-bc
 _pkgname=bc
-pkgver=2.0.0
+pkgver=2.1.0
 pkgrel=0
 pkgdesc="POSIX bc with GNU extensions"
 url="https://github.com/gavinhoward/bc"
@@ -25,4 +25,4 @@ package() {
 	make install
 }
 
-sha512sums="183cec17ed5020e673abb886eb1f391f8a97ac37a67ca63bb00d8b4c8e52ba0e502f7f813d5b4abf650b0fd0dc74a7e8a7a752faf8a47bd7a8014fd4703bca05  howard-bc-2.0.0.tar.xz"
+sha512sums="d117c0433b08d7bf4986ff49a39b6cbd1048399e74a3781ba48b27008d18c1cedfaca79c1d0510919b194bc593699ba99a736c377815cb3659cec772b45b1cd1  howard-bc-2.1.0.tar.xz"

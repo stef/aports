@@ -1,0 +1,31 @@
+# Contributor: Bart Ribbers <bribbers@disroot.org>
+# Maintainer: Bart Ribbers <bribbers@disroot.org>
+pkgname=kcolorchooser
+pkgver=19.04.3
+pkgrel=0
+arch="all"
+url="https://kde.org/applications/graphics/org.kde.kcolorchooser"
+pkgdesc="A color palette tool, used to mix colors and create custom color palettes"
+license="MIT"
+makedepends="extra-cmake-modules qt5-qtbase-dev ki18n-dev kxmlgui-dev"
+source="https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"
+subpackages="$pkgname-lang"
+options="!check" # No tests
+
+build() {
+	cmake \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib
+	make
+}
+
+check() {
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" make install
+}
+
+sha512sums="99ffc055bfb69cf8ad686442afa6a4e0d6aef0ef345f1cdc590b1a4f569b545e2fd05b6f794ec57e1fa7a210d893122a733c048b12ecaad3b93156d1db01e682  kcolorchooser-19.04.3.tar.xz"

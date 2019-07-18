@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=ksshaskpass
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="ssh-add helper that uses kwallet and kpassworddialog"
 arch="all"
@@ -27,4 +27,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="1046c5e598b9c170767441d4ecff1f4def0e2f87fac97ab96dfe0ecb93dea903afb573172952c7d1362c9bad7ca8441a13c6a2922558a92bb6c9b13e316ea426  ksshaskpass-5.16.1.tar.xz"
+sha512sums="cd08827870ac002dfb45362fcd2dbe0ee61e8a621cc7dc0c67d5e6f810e96db6055cd2a2dde3fe21f93c1342e8f014e25b9d5873f38da8eeea79fb08eae27bde  ksshaskpass-5.16.3.tar.xz"

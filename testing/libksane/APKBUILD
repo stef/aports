@@ -1,0 +1,30 @@
+# Contributor: Bart Ribbers <bribbers@disroot.org>
+# Maintainer: Bart Ribbers <bribbers@disroot.org>
+pkgname=libksane
+pkgver=19.04.3
+pkgrel=0
+arch="all"
+url="https://www.kde.org/applications/graphics/"
+pkgdesc="An image scanning library"
+license="LGPL-2.1-only OR LGPL-3.0-only"
+makedepends="extra-cmake-modules qt5-qtbase-dev ki18n-dev kwidgetsaddons-dev ktextwidgets-dev kwallet-dev sane-dev"
+source="https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"
+subpackages="$pkgname-dev $pkgname-lang"
+
+build() {
+	cmake \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib
+	make
+}
+
+check() {
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" make install
+}
+
+sha512sums="c86c12e44c934fdbf9fff530286c0b325dd211110325c8cad23da3c7dc6ad2d06fcbaeacf611c35f3bd39d3cfa992e93ba098ba578b8c0ca246295f49b35b695  libksane-19.04.3.tar.xz"

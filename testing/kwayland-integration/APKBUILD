@@ -1,7 +1,7 @@
 # Contributor: Bhushan Shah <bshah@kde.org>
 # Maintainer: Bhushan Shah <bshah@kde.org>
 pkgname=kwayland-integration
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="KWayland integration"
 url="https://www.kde.org/workspaces/plasmadesktop/"
@@ -24,4 +24,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="cde816e04944cd262ab6b154672b54c0d736b366b47666930d3c83c9a6ef47067dbf0407cbc84a3a51cc9a2fe31f338bfe1f2d231e94ecbacd2f2403b9a5dea9  kwayland-integration-5.16.1.tar.xz"
+sha512sums="dbe2d1ca463af84a4b4341aeda925997cc458c97f0aa9414c1f223b248991a23159e994fbf92b1297217edf3159692d19c26ceed642ae2ef755d991d3b95b366  kwayland-integration-5.16.3.tar.xz"

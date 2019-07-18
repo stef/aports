@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=systemsettings
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="Plasma system manager for hardware, software, and workspaces"
 arch="all !ppc64le !s390x" # Limited by plasma-workspace -> libksysguard -> qt5-qtwebengine
@@ -28,4 +28,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="9ce6d49f94cbdf24b889111005d9d46e364805182f814c8094b71b0341899a45e45fba775218eda9708beba58cfd2155abcccbd04b514248c894e036af2a4777  systemsettings-5.16.1.tar.xz"
+sha512sums="2a67c8d94f54dd277f4bba148387fa31a1bca90376b0f219cebf2fae01a8f686267f18a71c933b0751e7746ed1257be3f45b31e0994be964ab2b002b25421ded  systemsettings-5.16.3.tar.xz"

@@ -1,0 +1,30 @@
+# Contributor: Bart Ribbers <bribbers@disroot.org>
+# Maintainer: Bart Ribbers <bribbers@disroot.org>
+pkgname=grantlee-editor
+pkgver=19.04.3
+pkgrel=0
+arch="all !ppc64le !s390x" # Limited by qt5-qtwebengine
+url="https://kontact.kde.org/"
+pkgdesc="Utilities and tools to manage themes in KDE PIM applications "
+license="GPL-2.0-or-later AND GFDL-1.2-only"
+makedepends="extra-cmake-modules qt5-qtbase-dev qt5-qtwebengine-dev kcrash-dev kdbusaddons-dev kdoctools-dev kxmlgui-dev ktexteditor-dev knewstuff-dev karchive-dev pimcommon-dev messagelib-dev grantleetheme-dev akonadi-mime-dev libkleo-dev kimap-dev kpimtextedit-dev syntax-highlighting-dev qgpgme"
+source="https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"
+subpackages="$pkgname-doc $pkgname-lang"
+
+build() {
+	cmake \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib
+	make
+}
+
+check() {
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" make install
+}
+
+sha512sums="bf17160ab384c1b316f6f4da51c789235d1a4490bce7a38aeb6840fe67afef83381b6d099e4222cbe55a7d365c612ef6be0c6ec6c24d2e6a5d1ea04d15a4e5ba  grantlee-editor-19.04.3.tar.xz"

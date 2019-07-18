@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kde-gtk-config
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="GTK2 and GTK3 Configurator for KDE"
 arch="all"
@@ -27,4 +27,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="7e457b2a353656c9fcbbd11702ab28d69fe5d4004143a5b7e164511e6275cefe731a61f391da6f3edce2cf790c4ac2cd5616413da1fc1c8438447d98d5933e45  kde-gtk-config-5.16.1.tar.xz"
+sha512sums="a178d992b1c50aa0eb3ac6e66a2427ed4841e9a293b4230a1b154ad1678a22964dd046e8401635775afd33be838904872f071e98b857a03db7c51f5e5ff3f7ae  kde-gtk-config-5.16.3.tar.xz"

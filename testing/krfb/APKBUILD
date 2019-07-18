@@ -1,0 +1,31 @@
+# Contributor: Bart Ribbers <bribbers@disroot.org>
+# Maintainer: Bart Ribbers <bribbers@disroot.org>
+pkgname=krfb
+pkgver=19.04.3
+pkgrel=0
+arch="all"
+url="https://kde.org/applications/internet/org.kde.krfb"
+pkgdesc="Desktop sharing"
+license="GPL-3.0-or-later AND GFDL-1.2-only"
+makedepends="extra-cmake-modules qt5-qtbase-dev qt5-qtx11extras-dev ki18n-dev kcompletion-dev kconfig-dev kcoreaddons-dev kcrash-dev kdbusaddons-dev kdnssd-dev kdoctools-dev knotifications-dev kwallet-dev kwidgetsaddons-dev kxmlgui-dev xcb-util-dev xcb-util-image-dev libvncserver-dev pipewire-dev"
+source="https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"
+subpackages="$pkgname-doc $pkgname-lang"
+options="!check" # No tests
+
+build() {
+	cmake \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib
+	make
+}
+
+check() {
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" make install
+}
+
+sha512sums="4334c51d4c0471cb0aa2a226626a49d6a1456e0c2ab8d03bbed99228bf6e61efbb41570e0c3f35310c2994831b2444c57caa6ebfa8739c5747b12a2f378917cf  krfb-19.04.3.tar.xz"

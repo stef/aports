@@ -1,0 +1,30 @@
+# Contributor: Bart Ribbers <bribbers@disroot.org>
+# Maintainer: Bart Ribbers <bribbers@disroot.org>
+pkgname=dolphin-plugins
+pkgver=19.04.3
+pkgrel=0
+arch="all"
+url="https://www.kde.org/applications/system/dolphin/"
+pkgdesc="Extra Dolphin plugins"
+license="GPL-2.0-or-later"
+makedepends="extra-cmake-modules qt5-qtbase-dev kxmlgui-dev ki18n-dev kio-dev ktextwidgets-dev ktexteditor-dev dolphin-dev"
+source="https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"
+subpackages="$pkgname-lang"
+
+build() {
+	cmake \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib
+	make
+}
+
+check() {
+	CTEST_OUTPUT_ON_FAILURE=TRUE ctest
+}
+
+package() {
+	DESTDIR="$pkgdir" make install
+}
+
+sha512sums="5a89daee3a4366905bd5c884460b62b9faf75989f8bb9b108f019c4359c5ea6406efcaf896a3504870819467130cd76e31a92cf9d697a5306293b5efd701e4c3  dolphin-plugins-19.04.3.tar.xz"

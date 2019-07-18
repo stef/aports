@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=plasma-workspace-wallpapers
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="Wallpapers for the Plasma Workspace"
 arch="noarch"
@@ -23,4 +23,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="f37b6a411c1a8bec64088275e7ac8de0fa8d73856ea259f4506b44b73b7ba9c93a55525e02fc72cd4b4824a014f22392d23a6a0decf53f4acc2515671067651e  plasma-workspace-wallpapers-5.16.1.tar.xz"
+sha512sums="de804ebf6756ecbd48e93d9e505c345b65360609ba70bd425bbec4344c29a3a77a0457315b4da71d39ec1cdc82de56129f9e284652763feccd7bd406d9ca54b3  plasma-workspace-wallpapers-5.16.3.tar.xz"

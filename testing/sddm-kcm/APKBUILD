@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=sddm-kcm
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="Config module for SDDM"
 arch="all !ppc64le !s390x" # Limited by systemsettings -> plasma-workspace -> libksysguard -> qt5-qtwebengine
@@ -27,4 +27,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="462f9031a7fbce06cde8d7954f84fea22d177f79da263069a4f95efc125ae599baf044347d052efd2b95d351c50fea0aee7de5c8de4cf9721d714a3a7eaf1632  sddm-kcm-5.16.1.tar.xz"
+sha512sums="6c16063b112179c7dcdcbcac601c8d16966c45f8ad8e5990e68d2347f4b30763674b602c6092af0b0852bf86dfb0df81ab5a3531574a2a56c45f068506b8bc3c  sddm-kcm-5.16.3.tar.xz"

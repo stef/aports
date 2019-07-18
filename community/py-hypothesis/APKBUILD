@@ -1,7 +1,7 @@
 # Contributor: Drew DeVault <sir@cmpwn.com>
 # Maintainer: Leo <thinkabit.ukim@gmail.com>
 pkgname=py-hypothesis
-pkgver=4.24.5
+pkgver=4.28.2
 pkgrel=0
 pkgdesc="Advanced property-based (QuickCheck-like) testing for Python"
 url="https://hypothesis.works/"
@@ -72,4 +72,4 @@ _py() {
 	$_python setup.py install --prefix=/usr --root="$subpkgdir"
 }
 
-sha512sums="e362761c780684d3fc8cb60f583dcf48cb4fb81750fd56177b99b2a24f7badc650c4783d05822dfe8bccc42fa824196154f2668857d7744f76f564966ae006e1  py-hypothesis-4.24.5.tar.gz"
+sha512sums="3926d00d507345a179b47cace3554e3caf3310f669b27540dcea7e8d6d8433fcd45fdbba0c2149a9b968fdc7db8a25b51089ee467606f7a2b5073e964fe50933  py-hypothesis-4.28.2.tar.gz"

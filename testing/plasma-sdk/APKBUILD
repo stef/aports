@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=plasma-sdk
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="Applications useful for Plasma Development"
 arch="all"
@@ -38,4 +38,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="8c759129d6b158b20bbe30c621f2960c66d6a8d319e32e7b9f4729d9d1684afd812b25b314e82470e200da2bb6a063d3b3cdedac567363a58aea99802cc1cf73  plasma-sdk-5.16.1.tar.xz"
+sha512sums="b51534412c0197fa84dc4e308aad25aa9e886eaaa2f3ae0a038ddddda43371d18cd142f4dc4ebbc5dc43fc0082b802a70b0dae3b55ece25a4084431d34a2b7b6  plasma-sdk-5.16.3.tar.xz"

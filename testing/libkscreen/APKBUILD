@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=libkscreen
-pkgver=5.16.1
+pkgver=5.16.3
 pkgrel=0
 pkgdesc="KDE screen management software"
 arch="all"
@@ -29,4 +29,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="6e9077a1bae1d202bf8c6110e03654d4c5a0e37af7dac4139df5efe9090a85c0b2f39a2c2636d699ff16a35985b674615bd0991343aff28e27d80d3c89a6616f  libkscreen-5.16.1.tar.xz"
+sha512sums="857e92a7d466d4dbea7cac17577b7db1e4b7c0791bf1e2c39db0923902b052f5accd8bc3eb1e7863084ffcca797bea8beddb987f91c60f6692d3f6cf229ac024  libkscreen-5.16.3.tar.xz"
