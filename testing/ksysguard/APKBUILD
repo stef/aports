@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=ksysguard
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Track and control the processes running in your system"
 arch="all !ppc64le !s390x" # Limited by libksysguard -> qt5-qtwebengine
@@ -26,4 +26,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="295566778727255b00aed2d686eaedc22cd51e7e7866ec5ca0ba9d6fbae73c66a6a49a8d7ed9e61b55d8402a11e6c80cc123fedde2b5f61d022256e1e745917b  ksysguard-5.16.3.tar.xz"
+sha512sums="579175da2cc4d9255b36890b716e1f060106a24c609d4cd92accc38aa2c47bf9723e1a19dfa80678619db811b59b40c853655bf678c187d802e137978c3a970b  ksysguard-5.16.5.tar.xz"

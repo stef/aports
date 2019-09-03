@@ -1,7 +1,7 @@
 # Contributor: Carlo Landmeter <clandmeter@gmail.com>
 # Maintainer: Francesco Colista <fcolista@alpinelinux.org>
 pkgname=certbot
-pkgver=0.36.0
+pkgver=0.37.2
 pkgrel=0
 pkgdesc="An ACME client that can update Apache/Nginx configurations"
 url="https://github.com/certbot/certbot"
@@ -17,14 +17,13 @@ depends="
 	py3-josepy
 	py3-mock
 	py3-parsedatetime
-	py3-rfc3339
+	py3-pyrfc3339
 	py3-tz
 	py3-setuptools
 	py3-zope-component
 	py3-zope-interface
 "
 checkdepends="py3-augeas"
-makedepends="python3-dev"
 replaces="letsencrypt"
 subpackages="py3-acme:acme $pkgname-nginx $pkgname-apache"
 source="certbot-$pkgver.tar.gz::https://github.com/certbot/certbot/archive/v$pkgver.tar.gz
@@ -59,9 +58,9 @@ acme() {
 		py3-josepy
 		py3-mock
 		py3-openssl
-		py3-rfc3339
+		py3-pyrfc3339
 		py3-tz
-		py-requests
+		py3-requests
 		py3-requests-toolbelt
 		py3-six
 	"
@@ -98,5 +97,5 @@ apache() {
 	python3 setup.py install --prefix=/usr --root="$subpkgdir"
 }
 
-sha512sums="f7fa8c6200a76b4fc4830865bf11fbba8bd73ea55e1236680181073952505c83b4650b43ccfc8e9b96caf47b85c43e47acf8db6d92134f7c279ebd954ab0ac92  certbot-0.36.0.tar.gz
-cc9647c9d1d6909e3d3df7adcb5816f814c4665ec54a5d0680b4a97d1599451db0fd192ff2e3a91c174ec2d8681fe0f62d7a3d40cc07081d058a6a6169f734a3  remove-check-for-setuptools-version.patch"
+sha512sums="2e357dfcb6da669f1ab6e4f9aa3e8e3457ce0f794f40c9ac862a9f24208b4f4d773dbafffd97fd1f7e5b2a29e1ca99be787101469384a9e61b4ddb077b644211  certbot-0.37.2.tar.gz
+eef4247230e27327b90b07489ff8774539624135f2196010fd0c188709da7f092afcb58d8690a48280e508f619bc580295eeb8d12364234d1933a35d31c4c924  remove-check-for-setuptools-version.patch"

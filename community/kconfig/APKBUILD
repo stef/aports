@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kconfig
-pkgver=5.60.0
+pkgver=5.61.0
 pkgrel=0
 pkgdesc="Configuration system"
 arch="all"
@@ -11,6 +11,10 @@ makedepends="extra-cmake-modules qt5-qttools-dev doxygen"
 checkdepends="xvfb-run"
 source="https://download.kde.org/stable/frameworks/${pkgver%.*}/$pkgname-$pkgver.tar.xz"
 subpackages="$pkgname-dev $pkgname-doc $pkgname-lang"
+
+# secfixes:
+#   5.60.0-r1:
+#     - CVE-2019-14744
 
 build() {
 	cmake \
@@ -29,4 +33,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="76aa15e9e1630c687ff7cc6b77060c74472f307442d07ae09d5f4aa61d7b6f29f3f1d270218c6d7fea8e86eb9dda43c96821d19d827a781c7f71da6135d98753  kconfig-5.60.0.tar.xz"
+sha512sums="38a1e9d4cfc1ca692b9721c56536cb8f19cbd3b75ec9ccb400c811dddcefe78f5147d6fccc99a4202aa78ab9d1a68028312c7202103397164983bd02f59fd705  kconfig-5.61.0.tar.xz"

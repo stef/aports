@@ -1,7 +1,7 @@
 # Contributor: Drew DeVault <sir@cmpwn.com>
 # Maintainer: Leo <thinkabit.ukim@gmail.com>
 pkgname=py-hypothesis
-pkgver=4.28.2
+pkgver=4.34.0
 pkgrel=0
 pkgdesc="Advanced property-based (QuickCheck-like) testing for Python"
 url="https://hypothesis.works/"
@@ -10,7 +10,7 @@ license="MPL-2.0"
 _py2_deps="py2-attrs py-enum34"
 _py3_deps="py3-attrs"
 makedepends="$_py2_deps $_py3_deps py2-setuptools py3-setuptools"
-checkdepends="py2-coverage py2-pytest py2-tz py2-numpy py2-dateutil py2-mock
+checkdepends="py2-coverage py2-pytest py2-tz py2-dateutil py2-mock
 	py3-pytest py3-coverage py3-tz py3-numpy py3-dateutil"
 subpackages="py2-${pkgname#py-}:_py2 py3-${pkgname#py-}:_py3"
 source="py-hypothesis-$pkgver.tar.gz::https://github.com/HypothesisWorks/hypothesis-python/archive/hypothesis-python-$pkgver.tar.gz"
@@ -33,19 +33,18 @@ check() {
 
 	# Add variables that will be used by python to find the local
 	# hypothesis build
-	PY3PATH="${PWD}/build/lib"
+	PY3PATH="$PWD/build/lib"
 
-	PYTHONPATH="${PY3PATH}" python3 -m pytest tests/cover
-	PYTHONPATH="${PY3PATH}" python3 -m pytest tests/py3
-	PYTHONPATH="${PY3PATH}" python3 -m pytest tests/datetime
-	PYTHONPATH="${PY3PATH}" python3 -m pytest tests/numpy
+	PYTHONPATH="$PY3PATH" python3 -m pytest tests/cover
+	PYTHONPATH="$PY3PATH" python3 -m pytest tests/py3
+	PYTHONPATH="$PY3PATH" python3 -m pytest tests/datetime
+	PYTHONPATH="$PY3PATH" python3 -m pytest tests/numpy
 
 	cd "$builddir"-py2
-	PY2PATH="${PWD}/build/lib"
-	PYTHONPATH="${PY2PATH}" python2 -m pytest tests/cover
-	PYTHONPATH="${PY2PATH}" python2 -m pytest tests/py2
-	PYTHONPATH="${PY2PATH}" python2 -m pytest tests/numpy
-	PYTHONPATH="${PY2PATH}" python2 -m pytest tests/datetime
+	PY2PATH="$PWD/build/lib"
+	PYTHONPATH="$PY2PATH" python2 -m pytest tests/cover
+	PYTHONPATH="$PY2PATH" python2 -m pytest tests/py2
+	PYTHONPATH="$PY2PATH" python2 -m pytest tests/datetime
 }
 
 package() {
@@ -72,4 +71,4 @@ _py() {
 	$_python setup.py install --prefix=/usr --root="$subpkgdir"
 }
 
-sha512sums="3926d00d507345a179b47cace3554e3caf3310f669b27540dcea7e8d6d8433fcd45fdbba0c2149a9b968fdc7db8a25b51089ee467606f7a2b5073e964fe50933  py-hypothesis-4.28.2.tar.gz"
+sha512sums="c1bc3307048e7b9e818e6c709544ec5be2fb0f8109a5a49af7a320ea77c8da0d69cad6e0fd546723c866d674960f009f901b2d0299ac55930ac2ff8db378929d  py-hypothesis-4.34.0.tar.gz"

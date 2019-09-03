@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kdeplasma-addons
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="All kind of addons to improve your Plasma experience "
 arch="all !ppc64le !s390x" # Limited by qt5-qtwebengine
@@ -41,4 +41,4 @@ package() {
 	cd "$builddir"/build
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="9ee73b23adfa4a126fd05884cf81255942198da9fc2753afcc8eeffc131cf41afabd88fb163b43de0826bd605d5835e392b2bf6b7f24d3211ba66a2025dd1334  kdeplasma-addons-5.16.3.tar.xz"
+sha512sums="0bcbff113d71bb33a6542d78a250dacb8eff66c5f8bc84f9ec0055fe74ccb7ad2b5706ef3782e754909c75a95b133f3233b93cd7290d354df1d54dca1401d875  kdeplasma-addons-5.16.5.tar.xz"

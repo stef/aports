@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=oxygen
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Artwork, styles and assets for the Oxygen visual style for the Plasma Desktop"
 arch="all"
@@ -26,4 +26,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="90dacddada4ffcc9dab398a08ffdbe0e40da43fd97870f74d962823f62d454836f685a55eaa0c34001aeb58095b9ec52177a22bbc18b40e316270d6989d26340  oxygen-5.16.3.tar.xz"
+sha512sums="6ed14b6fc454e22e837525efa7298245d62cd7c86a0f8b608960141f8820722fa9996214848309cb89d4212d9a8ad1384ce82e7917b62114aea8d65247b68951  oxygen-5.16.5.tar.xz"

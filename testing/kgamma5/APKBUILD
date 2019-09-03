@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kgamma5
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Adjust your monitor's gamma settings"
 arch="all"
@@ -27,4 +27,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="1fea00eaf58ac4419a6a9953861664b2243317c399fd38e527b62db1145486765b387ae16c4a1e7e465c06e96d61487799e9166da5f264f340652b2017568c53  kgamma5-5.16.3.tar.xz"
+sha512sums="0cbf4162dec3653710f9e2c8cbeb2e7c6780a3fac75f0abd3c63124ac538d8bec065fbadf0765155e77954be4b7c7375e565c1c834e5bc775fcb8dfad677328a  kgamma5-5.16.5.tar.xz"

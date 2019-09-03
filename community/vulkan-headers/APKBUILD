@@ -2,7 +2,7 @@
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=vulkan-headers
 _pkgname=Vulkan-Headers
-pkgver=1.1.112
+pkgver=1.1.120
 pkgrel=0
 arch="noarch"
 url="https://www.khronos.org/vulkan"
@@ -25,4 +25,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="c6b59a7b3b53bf88ad1f56f051c30130d0d4eb39b0793ad35a6e7ed56f96632ae880900a0bcd855e92c1fde37940ae2e5b5f7095e6bb5f55e45baceb1af98a66  vulkan-headers-1.1.112.tar.gz"
+sha512sums="13179ef51aab7b1a75bb442c8b33d1a3d7656dc0719187bc739bd63ec0112fc82f9710e897b8d6fdcdb33729d90ce25af427a95e02ce580677d2ed0376fe64ec  vulkan-headers-1.1.120.tar.gz"

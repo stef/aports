@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=libksysguard
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="KDE system monitor library"
 arch="all !ppc64le !s390x" # limited by qt5-qtwebengine
@@ -29,4 +29,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="37cb944cdc7ea90f4a24f6aad7dbc8114e845d90803dc1b0c85710623f0a8ee99f39a65a17ea155aa2494f7e4280698ad78da56cfdd379f879cc0f2f01696036  libksysguard-5.16.3.tar.xz"
+sha512sums="be6d4806108b26613686ff06d9d9ea10610c87c556a90c0c8a233e0190de00d9b3d87489ffbb378d64ee7fd29eb9c58faeb2a9269d8f4963f8c5866b19388cd5  libksysguard-5.16.5.tar.xz"

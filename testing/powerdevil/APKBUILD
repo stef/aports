@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=powerdevil
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Manages the power consumption settings of a Plasma Shell"
 arch="all !ppc64le !s390x" # Limited by plasma-workspace -> libksysguard -> qt5-qtwebengine
@@ -29,4 +29,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="0dcc552a5c68e53186e5d4cf507f4064e5c255c59a59ed8f8bc3e9154fa47bf8e24e47c32b07ce9b945c1ede93b54f23933ee39f97240d3399e76f0f64d58cbd  powerdevil-5.16.3.tar.xz"
+sha512sums="26e08324d25f099636309cd9bbabf4a5b7f8eb3a86bc0db8a9973169c00687063c031117aef5e75959b319eaf4d0c60688ec8acead936eec8a6653b242a82db1  powerdevil-5.16.5.tar.xz"

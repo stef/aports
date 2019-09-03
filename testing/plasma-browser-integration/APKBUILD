@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=plasma-browser-integration
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Components necessary to integrate browsers into the Plasma Desktop"
 arch="all"
@@ -27,4 +27,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="ddc04393207708c183eed6235ff1988bc6922008dfb82e8ca85a865cd3a07e8759794fe0b19f10e48a3287c62c9774dd41d822e0ad1852b74eace193b182afee  plasma-browser-integration-5.16.3.tar.xz"
+sha512sums="667c5ef2dd0529e6c567e9d3e34e8e6df73e0101605ccc4a6712e7f47b6824407495102ddc9b800e411f53a1fdf0132caebf6d955c39e7a80b7ab6569d02d1b4  plasma-browser-integration-5.16.5.tar.xz"

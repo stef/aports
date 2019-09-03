@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kwallet-pam
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="KWallet PAM integration"
 arch="all"
@@ -23,4 +23,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="f5178e412c7802cf2b39139164fb2878e2765b51edd7bd26b2de156e7facb049cc1f299c7611d06abb308f7df9c79c4992abd6494cc2c60db0db7c2ef0c0fbc2  kwallet-pam-5.16.3.tar.xz"
+sha512sums="6a3c09b645a193bd5164525c6ca0c807a0adc141566db7436101784fef8def79e121c599a837dac32393f8e5ab2c33a9473a29013d07bd64e6a8eab32308d3d1  kwallet-pam-5.16.5.tar.xz"

@@ -1,10 +1,10 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=plasma-nm
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Plasma applet written in QML for managing network connections"
-arch="all"
+arch="all !s390x" # Limited by networkmanager -> iwd
 url="https://www.kde.org/workspaces/plasmadesktop/"
 license="GPL-2.0"
 depends="kirigami2 networkmanager"
@@ -28,4 +28,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="ad48ce3e2aac9900b7c14890379e53b6b6543bbca4fcf5de1af7e7fafa86572fdefca0b938537aa1e1d5c84685d8bcbeeb6de07e30010630d811c251cdd015da  plasma-nm-5.16.3.tar.xz"
+sha512sums="cc52ed0b1933d0c8c86bd3188ee77d155adc2392dadbc311daf222c4e0c4c4a484b6748e1f5d52b643cc7fc55db947aff0f0a4c5ef14742d4211969e65b85d3f  plasma-nm-5.16.5.tar.xz"

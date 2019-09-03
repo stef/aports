@@ -2,7 +2,7 @@
 # Maintainer: Francesco Colista <fcolista@alpinelinux.org>
 pkgname=py-pbr
 _pkgname=pbr
-pkgver=5.4.0
+pkgver=5.4.2
 pkgrel=0
 pkgdesc="Python Build Reasonableness"
 url="https://pypi.python.org/pypi/pbr"
@@ -48,4 +48,4 @@ _py() {
 	$python setup.py install --prefix=/usr --root="$subpkgdir"
 }
 
-sha512sums="30179b0f3af835f84edb420d806659e235aef3934286c56d23fc5c41b6bd7b682181b2ce7406703a997cd996b80daceba59ee5ef72147c5c799e4ad665764e9c  pbr-5.4.0.tar.gz"
+sha512sums="fd1ff768ed589760a1c9d339f3ddaaa0f13723a196913b0524659085333bbb3485506998875b9e293935ece2bb2ea042fba317822ac171ef99bdd43103525bed  pbr-5.4.2.tar.gz"

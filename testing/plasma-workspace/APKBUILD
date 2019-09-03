@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=plasma-workspace
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="KDE Plasma Workspace"
 arch="all !ppc64le !s390x" # Limited by libksysguard -> qt5-qtwebengine
@@ -33,4 +33,4 @@ package() {
 
 	install -Dm644 plasmawayland.desktop "$pkgdir"/usr/share/wayland-sessions/plasmawayland.desktop
 }
-sha512sums="347be076604b29234845978e3442653507e93d892c47c63a46f659bc11f692944fc9879391bb686893916a77f3be2f12048fb4f870e7de567c3c13f034ba5155  plasma-workspace-5.16.3.tar.xz"
+sha512sums="e55e89b6a8e3dcf68bb7ad4f62f284cd819c7461eff1269f84df086a2516401c26363cc6c3c8e6cc8e27788222b3ed81098d765a25e5d96d9274e3b342816369  plasma-workspace-5.16.5.tar.xz"

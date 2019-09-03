@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=plasma-vault
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Plasma applet and services for creating encrypted vaults"
 arch="all !ppc64le !s390x" # Limited by libksysguard -> qt5-qtwebengine
@@ -36,4 +36,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="8a21232994d75b57c8f60d3ae34750ec63cd686f3e97ae38feaa064e89d46fda062543df5c5ebf6f905178cd63017f754e7b4af82a38e3aa27a6d6e12304bd05  plasma-vault-5.16.3.tar.xz"
+sha512sums="bb5d06af090b9659cf9d253b8469e3b7264d7a820c6bbdce7db414d3a8e5aef5dc1122d11285194afa0b2d1aff2a0a2dd8a74036674541abd7938d38521afbd5  plasma-vault-5.16.5.tar.xz"

@@ -1,7 +1,7 @@
 # Contributor: Rasmus Thomsen <oss@cogitri.dev>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=xdg-desktop-portal-kde
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="Qt/KF5 implementation of xdg-desktop-portal"
 url="https://phabricator.kde.org/source/xdg-desktop-portal-kde"
@@ -31,4 +31,4 @@ package() {
 	make DESTDIR="$pkgdir" install
 }
 
-sha512sums="98ab00255ebd535525f909008304d10f6c94edb9be6a32488bc943279d0169bb70c48c05863795045568d0b404d1b088f298b80d869fbacb502ff812fd772732  xdg-desktop-portal-kde-5.16.3.tar.xz"
+sha512sums="381298cc001795902343512f8bb08c363acfb6e3ef398e0f170f305572ca9a5caaf458e85b6f48ac84bcd963a34e535c666b0ddc1bb910a894a8b8de8801467e  xdg-desktop-portal-kde-5.16.5.tar.xz"

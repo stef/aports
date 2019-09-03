@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kwrited
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="KDE daemon listening for wall and write messages"
 arch="all"
@@ -23,4 +23,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="9b826146bdd2fded4ada1f782a18070ca65f4fb172c71cdcfafc0093a56e708d043506344117ce14de5f85ad3e744816aec0c362d64b49cd8d6fba167bf03c51  kwrited-5.16.3.tar.xz"
+sha512sums="fdd3d148b3467392c6475a6d86735e7a10114e700b50badf572fb378c0ee20e280421fb43944cfe33d164ff7c94e11e5c8bf67d484ebffabc5a8cba21a4ef96e  kwrited-5.16.5.tar.xz"

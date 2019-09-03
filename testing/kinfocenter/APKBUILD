@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kinfocenter
-pkgver=5.16.3
+pkgver=5.16.5
 pkgrel=0
 pkgdesc="A utility that provides information about a computer system"
 arch="all"
@@ -27,4 +27,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="feb1f395167310637007a2ff89839466a576edb8440a79b39bc6d07322ddb9bd5b310451e6bd3f5fd93aa2170b8eefa6223c3a2e93904f5d34b037fa4301ba9a  kinfocenter-5.16.3.tar.xz"
+sha512sums="1b98515beac87ff5394c06dd6029a2688db27a900f4c85fd4884d332a20120d553c25b98ae5ccfd7da2e6cbaa866edb84809f49c1c19922f25241acdc9e56832  kinfocenter-5.16.5.tar.xz"

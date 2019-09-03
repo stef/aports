@@ -3,15 +3,15 @@
 # Contributor: Timo Teräs <timo.teras@iki.fi>
 # Maintainer: Timo Teräs <timo.teras@iki.fi>
 pkgname=youtube-dl
-pkgver=2019.07.16
+pkgver=2019.09.01
 pkgrel=0
 pkgdesc="Command-line program to download videos from YouTube"
-url="https://youtube-dl.org"
+url="https://youtube-dl.org/"
 arch="noarch"
 license="Unlicense"
 depends="python3"
 makedepends="py3-setuptools"
-options="!check"  # FIXME: run provided tests
+checkdepends="py3-flake8 py3-nose"
 subpackages="$pkgname-doc
 	$pkgname-zsh-completion:zshcomp
 	$pkgname-bash-completion:bashcomp
@@ -29,6 +29,10 @@ prepare() {
 
 build() {
 	python3 setup.py build
+}
+
+check() {
+	PYTHON=/usr/bin/python3 make offlinetest
 }
 
 package() {
@@ -61,4 +65,4 @@ fishcomp() {
 		"$subpkgdir"/usr/share/fish/completions/
 }
 
-sha512sums="7dc71913210669521684ac0484ef02d20d7ce500d8fb72581d4f8c2978b369582ee003ea4e908e262cf1f7cd734b4e989d667a1fa36d6cf19e9fc0723c55d411  youtube-dl-2019.07.16.tar.gz"
+sha512sums="327ef44180e2048045884d79de20541f81a4dbcee415c3fa15bcf333674f2b6e6c6663efa532b64e4f7078449af946479c98464ff9b54642e886f8c792f0b82f  youtube-dl-2019.09.01.tar.gz"
