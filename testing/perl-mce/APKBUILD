@@ -3,7 +3,7 @@
 # Maintainer: Timo Teräs <timo.teras@iki.fi>
 pkgname=perl-mce
 _pkgreal=MCE
-pkgver=1.846
+pkgver=1.850
 pkgrel=0
 pkgdesc="Many-Core Engine for Perl providing parallel processing capabilities"
 url="https://metacpan.org/release/MCE"
@@ -37,4 +37,4 @@ check() {
 	make test
 }
 
-sha512sums="3449d5c741f1968fcb836322b1336f9652bf0d47f808cb7ebd331456437f0f826ef57130ad7c0a0c04601a29512376f5050e2b0fbaf0f8056ba2195b129fbc08  MCE-1.846.tar.gz"
+sha512sums="6f127f66aa07a56f37cf2dde05e8ad5a57e56d8918af38ab795ce0e1d34927c74ccc4921bc234ebae1c3aed1c0859080fb66305740528bc0f16409c17cce3128  MCE-1.850.tar.gz"

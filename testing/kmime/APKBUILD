@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kmime
-pkgver=19.08.0
+pkgver=19.08.1
 pkgrel=0
 pkgdesc="Library for handling mail messages and newsgroup articles"
 arch="all"
@@ -28,4 +28,4 @@ check() {
 package() {
 	DESTDIR="$pkgdir" make install
 }
-sha512sums="90f5b049c8a7e1a4b283ebda982b6a92296591544f8bd8f50f4e57daa99e9aca0821ca2df3b4a2baf7649c2982c8c340c0c65c2005d854eca747c3fa437d14be  kmime-19.08.0.tar.xz"
+sha512sums="d1cdb8e7626e2071a95edadd1257255bb3f6318358736154d9d07897cd15388a433e4879affaadd4b5e67f5d35294ed17a4acd5ba2b9a9da3ab1ce5094bbeea6  kmime-19.08.1.tar.xz"

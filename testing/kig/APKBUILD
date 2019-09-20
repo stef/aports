@@ -1,7 +1,7 @@
 # Contributor: Bart Ribbers <bribbers@disroot.org>
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=kig
-pkgver=19.08.0
+pkgver=19.08.1
 pkgrel=0
 arch="all"
 url="http://edu.kde.org/kig"
@@ -28,4 +28,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="b08c5b795b9e570ae0380c04bfeb1dcbc6b670a585ce5dcc70710cc8e914766f57d0561dffb8e6ca69a5a56ef734d41d9e59049340a73034f3f52801597df458  kig-19.08.0.tar.xz"
+sha512sums="a5a63cead1fd5e1231a17b1ad205daa681ca4c1281ae88de813e4827166198e8a47901e0b774c1939b647331acfedcc0ea0ccd4169ea7ffbf213f2829d00354a  kig-19.08.1.tar.xz"

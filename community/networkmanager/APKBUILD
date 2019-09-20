@@ -2,11 +2,11 @@
 # Contributor: Stuart Cardall <developer@it-offshore.co.uk>
 # Maintainer: Rasmus Thomsen <oss@cogitri.dev>
 pkgname=networkmanager
-pkgver=1.20.0
+pkgver=1.20.2
 pkgrel=0
 pkgdesc="Network Management daemon"
 url="https://wiki.gnome.org/Projects/NetworkManager"
-arch="all !s390x" # Limited by iwd
+arch="all"
 license="GPL-2.0-or-later"
 depends="dhcpcd iptables dbus"
 install="$pkgname.pre-install $pkgname.pre-upgrade"
@@ -34,7 +34,7 @@ makedepends="$depends_dev
 	meson
 	py-gobject3
 	libpsl-dev
-	python2
+	python3
 	"
 subpackages="$pkgname-dev $pkgname-doc $pkgname-lang $pkgname-openrc"
 source="https://download.gnome.org/sources/NetworkManager/${pkgver:0:4}/NetworkManager-$pkgver.tar.xz
@@ -49,6 +49,7 @@ source="https://download.gnome.org/sources/NetworkManager/${pkgver:0:4}/NetworkM
 	musl-compar.patch
 	fix-ppc64le-build.patch
 	musl-no-drand.patch
+	py3.patch
 	"
 options="!check" # fail to compile on musl
 
@@ -108,7 +109,7 @@ wifi.backend=iwd
 EOF
 }
 
-sha512sums="825c56a7530d813ba7ea2ec57034def560f4b0fb65a09dc70cd94dc897e2aabde11f18c6c4843da9c520531683e963037ce42270a6ffa5c7c5e9502bb80bdf1b  NetworkManager-1.20.0.tar.xz
+sha512sums="5070af29e2a6db0d58b0b1233f8fd40aca0eca68b879daaa416d7cd7b882741cc9f4746e295bdf99eb63798225bc259321cac994f050a08a00dc1c59170a16fe  NetworkManager-1.20.2.tar.xz
 a6e507260e2ceffad4cacb2b49a1d4f6b933e5ae8bc50c1bd56f828298c5dc8d9d17aa4be766faeacefbe3c6c0c748e4ef499a55bb5ee40f0f04bbf766fbbc82  networkmanager.conf
 5ac6d11b588c479de9c7e1fef79ed0a2c04dc159a2173636a6a77a2867c839cc1609860756109e9e794f23a02238a6d94834d8fb6fcb81a6be3ef1dbf4a34e6f  networkmanager.initd
 9820ed2ead0af689644842de57657bb10330a1eaff0e85b21ae9913f55e399e47d8b41b0a12956f30de80272b4424c6e55f33acbc88e156879003a260bf576f6  networkmanager.rules
@@ -119,4 +120,5 @@ b5cd94928ca3ba1fb71aec28d9ff66f319f6d23131e02c90f1dfbfaf16c537935228a9981c95f29f
 76b6728389686c91df6acafbbe17af7f0e01971e5f7185e164dcb39f93982ac6b73fc2cdf0ba2018e3fa80321178621fe2a5d910546de98bfc52484aa5d90d34  musl-has-not-secure-getenv.patch
 634377674691b52da80ca4c445a727d39cd40269f7deef0d3ccc1e1041cc262e8bc1423200e9a2b0cf1804e9950059ebbbc827f1200c6a97c58bc76080a6d6d2  musl-compar.patch
 c2dbdf31adb472dc6b14aad6d7a0981b2618880df7c9081ebb9bc6da8af4c5e791c36c4e997878d5e1e7f96bd65814f718e7ae23dcfea5ac5aa91acdab3775ae  fix-ppc64le-build.patch
-342fb3eef0e7057b6d8f1a00687af17dc633387d8a25d475e3e9c8de5712221eec8ada634a189e3458dcbb12b20625b99b552acda3927b5baa61b960ce5740eb  musl-no-drand.patch"
+342fb3eef0e7057b6d8f1a00687af17dc633387d8a25d475e3e9c8de5712221eec8ada634a189e3458dcbb12b20625b99b552acda3927b5baa61b960ce5740eb  musl-no-drand.patch
+b79a8d9581e843eeb0d773b2ba53f7a8081a788143f9684280f436d8797e7ca1af2e878300e1388f43f60fba3e25358de4245426b80c3d9b001679a72cf37b03  py3.patch"

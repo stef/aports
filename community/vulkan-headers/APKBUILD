@@ -2,14 +2,14 @@
 # Maintainer: Bart Ribbers <bribbers@disroot.org>
 pkgname=vulkan-headers
 _pkgname=Vulkan-Headers
-pkgver=1.1.120
+pkgver=1.1.123
 pkgrel=0
 arch="noarch"
 url="https://www.khronos.org/vulkan"
 pkgdesc="Vulkan header files"
 license="Apache-2.0"
 makedepends="cmake"
-source="$pkgname-$pkgver.tar.gz::https://github.com/khronosgroup/$pkgname/archive/v$pkgver.tar.gz"
+source="$pkgname-$pkgver.tar.gz::https://github.com/khronosgroup/vulkan-headers/archive/v$pkgver.tar.gz"
 options="!check" # No tests
 builddir="$srcdir/$_pkgname-$pkgver"
 
@@ -25,4 +25,4 @@ package() {
 	DESTDIR="$pkgdir" make install
 }
 
-sha512sums="13179ef51aab7b1a75bb442c8b33d1a3d7656dc0719187bc739bd63ec0112fc82f9710e897b8d6fdcdb33729d90ce25af427a95e02ce580677d2ed0376fe64ec  vulkan-headers-1.1.120.tar.gz"
+sha512sums="66bb2737b81d8aaab082570403d0fbce71d15c9b77cdb7f8a1f53506076acf8f5b70dad5685e9638398e3f31257f1ff16300777ab826bb1d8f5ec0a5025d520b  vulkan-headers-1.1.123.tar.gz"
